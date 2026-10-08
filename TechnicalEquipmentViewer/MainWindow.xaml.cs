@@ -1,13 +1,4 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using TechnicalEquipmentViewer.Models;
 using TechnicalEquipmentViewer.Services;
 
@@ -22,30 +13,27 @@ namespace TechnicalEquipmentViewer
         {
             InitializeComponent();
 
-            LoadData();
+            LoadDataAsync();
         }
 
-        private async void LoadData()
+        private async void LoadDataAsync()
         {
             try
             {
                 ApiClient apiClient = new();
                 JsonService jsonService = new();
 
-                string json = await apiClient.PostAsync("https://it-dev.kovalska.dev/DEV_TOR/ws/api/_MOBILEDATASYNC");
+                string json = await apiClient.PostAsync();
 
                 ApiResponse response = jsonService.DeserializeResponse(json);
 
-                TreeService treeService = new TreeService();
+                TreeService treeService = new();
                 treeService.AddTechnicalPlaces(TechnicalTree.Items, response.Result.TechnicalPlaces);
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
-
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using TechnicalEquipmentViewer.Models;
 
 namespace TechnicalEquipmentViewer.Services
@@ -25,7 +19,7 @@ namespace TechnicalEquipmentViewer.Services
                 AddEquipments(placeItem, technicalPlace.Equipments);
                 AddTechnicalPlaces(placeItem.Items, technicalPlace.TechnicalPlaces);
 
-                placeItem.Header = $"Technical Place: {technicalPlace.Name}; ({placeItem.Items.Count})";
+                placeItem.Header = $"Technical Place: {technicalPlace.Name} ({placeItem.Items.Count})";
 
                 parentItems.Add(placeItem);
             }
@@ -44,7 +38,7 @@ namespace TechnicalEquipmentViewer.Services
 
                 AddMonitoringTasks(equipmentItem, equipment.MonitoringTasks);
 
-                equipmentItem.Header = $"Equipment: {equipment.Name}; ({equipmentItem.Items.Count})";
+                equipmentItem.Header = $"Equipment: {equipment.Name} ({equipmentItem.Items.Count})";
 
                 parentItem.Items.Add(equipmentItem);
             }
