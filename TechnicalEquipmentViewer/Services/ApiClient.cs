@@ -16,7 +16,7 @@ namespace TechnicalEquipmentViewer.Services
             _httpClient = new HttpClient();
         }
 
-        public async Task<string> GetAsync(string url)
+        public async Task<string> PostAsync(string url)
         {
             try
             {
