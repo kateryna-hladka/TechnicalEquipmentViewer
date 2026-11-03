@@ -5,7 +5,7 @@ namespace TechnicalEquipmentViewer.Services
 {
     public class ApiClient
     {
-        private const string Url = "https://it-dev.kovalska.dev/DEV_TOR/ws/api/_MOBILEDATASYNC";
+        private const string Url = "https://equipment.free.beeceptor.com/api/equipment";
         private readonly HttpClient _httpClient;
 
         public ApiClient()
